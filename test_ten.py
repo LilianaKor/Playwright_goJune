@@ -1,7 +1,7 @@
 import time
 from idlelib import browser
 
-from  playwright.sync_api import Page, expect
+from playwright.sync_api import Page, expect
 
 
 def test_wiki(page: Page):
@@ -12,7 +12,6 @@ def test_wiki(page: Page):
     time.sleep(5)
 
 
-
 def test_wiki2(page: Page):
     page.goto('https://en.wikipedia.org/wiki/Main_Page')
     page.get_by_role('link', name='Welcome to Wikipedia')
@@ -21,3 +20,10 @@ def test_wiki2(page: Page):
     page.locator('#ca-talk').click()
     time.sleep(3)
     expect(page.locator('#firstHeading')).to_have_text('Wikipedia talk:Contents')
+
+
+
+
+#For Run
+#pip install pytest-playwright
+#pytest --headed
