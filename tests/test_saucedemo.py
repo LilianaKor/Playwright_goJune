@@ -1,5 +1,6 @@
 from playwright.sync_api import Page, expect
 import pytest
+from playwright.sync_api import sync_playwright
 
 
 def test_title(page: Page):
@@ -10,9 +11,6 @@ def test_title(page: Page):
 def test_inventory_site(page: Page):
     page.goto("https://www.saucedemo.com/inventory.html")
     assert page.inner_text('h3') == "Epic sadface: You can only access '/inventory.html' when you are logged in."
-
-
-from playwright.sync_api import sync_playwright
 
 
 def test_login_page():
